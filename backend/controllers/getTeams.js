@@ -24,19 +24,10 @@ const createTeam = async (req, res) => {
 
 const getTeams = async (req, res) => {
   try {
-    console.log('inside getTeams');
     const teams = await Team.find();
-    res.status(200).json(
-      {
-        success: true,
-        teams,
-        message: "Teams fetched successfully"
-      }
-    );
-    console.log('teams fetched successfully');
+    res.status(200).json(teams);
   } catch (error) {
     res.status(500).json({
-      success: false,
       message: "Error fetching teams",
       error,
     });

@@ -1,0 +1,43 @@
+body{
+    background-color: #f0c6c6;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+.RegForm
+{
+    display: flex;
+    flex-direction: column;
+    /* justify-content:baseline; */
+    gap: 5px;
+    /* padding: 50px; */
+    font-family:'montserrat','Times New Roman', Times, serif;
+}
+span{
+    display: flex;
+    font-family:'montserrat','Times New Roman', Times, serif;
+}
+
+.submit
+{
+    background-color: #920d0d;
+    border: 1px solid #f0c6c6;
+    border-radius: 20px;
+    padding: 10px;
+    font-family:'montserrat','Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.submit:hover
+{
+    background-color: #f0c6c6;
+    color: #920d0d;
+    transition: 0.3s;
+}
+.submit:active
+{
+    transform: scale(0.9);
+    background-color: #920d0da3;
+}
