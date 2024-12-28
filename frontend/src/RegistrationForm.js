@@ -57,6 +57,7 @@ const RegistrationForm = () => {
             <h2>Registration Form</h2>
             <div className='teamName'>
                 <label>Team Name:</label>
+                <br />
                 <input
                     type="text"
                     name="teamName"

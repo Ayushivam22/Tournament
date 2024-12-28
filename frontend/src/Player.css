@@ -10,7 +10,7 @@ span
 {
     padding-left: 2%;
 }
-@media (max-width: 400px) {
+@media ((max-width: 660px)) {
     .form {
         display: flex;
         justify-content: center;

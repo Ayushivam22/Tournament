@@ -7,9 +7,16 @@
   height: 20vh;
   width: 100%;
 }
+.teamName{
+  input{
+
+    width: 40vw;
+  }
+}
 .info-form
 {
   display: flex;
+  background-image: linear-gradient(to right, #972d13aa, #feb47b);
   /* background-color: yellow; */
 }
 .form{
@@ -45,7 +52,7 @@ form
   gap: 5%;
 }
 /* Media query for mobile devices */
-@media (max-width: 650px) {
+@media (max-width: 660px) {
   .App
   {
     display: flex;
@@ -80,5 +87,11 @@ form
   span {
       flex-direction: column;
       align-items: flex-start;
+  }
+  .teamName
+  {
+    input{
+      width: 70vw;}
+
   }
 }
