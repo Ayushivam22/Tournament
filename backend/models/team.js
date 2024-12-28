@@ -9,7 +9,10 @@ const playerSchema = new Schema({
 
 const teamSchema = new Schema({
   teamName: { type: String, required: true },
-  players: [playerSchema]
+  players: [playerSchema],
+  contactEmail: { type: String, required: true,unique: true},
+  contactPhone: { type: Number, required: true}, 
+  isVerified: { type: Boolean, default: false}
 });
 
 const Team = mongoose.model('Team', teamSchema);
