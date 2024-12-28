@@ -16,6 +16,8 @@ body{
 {
     display: flex;
     flex-direction: column;
+    
+  background-image: linear-gradient(to right, #972d13aa, #feb47b);
     /* justify-content:baseline; */
     gap: 5px;
     /* padding: 50px; */
