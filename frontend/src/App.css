@@ -45,7 +45,7 @@ form
   gap: 5%;
 }
 /* Media query for mobile devices */
-@media (max-width: 400px) {
+@media (max-width: 650px) {
   .App
   {
     display: flex;

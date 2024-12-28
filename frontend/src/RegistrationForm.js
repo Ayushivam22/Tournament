@@ -37,7 +37,6 @@ const RegistrationForm = () => {
                 teamName: teamData.teamName,
                 players: players
             };
-            console.log(teamDataToSend);
             const response = await fetch('http://localhost:3000/api/v1/createteam', {
                 method: 'POST',
                 headers: {
@@ -47,7 +46,6 @@ const RegistrationForm = () => {
             });
 
             const result = await response.json();
-            console.log(result);
 
         } catch (error) {
             console.error('Error submitting team data:', error);
@@ -57,11 +55,12 @@ const RegistrationForm = () => {
     return (
         <div className='RegForm'>
             <h2>Registration Form</h2>
-            <div>
+            <div className='teamName'>
                 <label>Team Name:</label>
                 <input
                     type="text"
                     name="teamName"
+                    placeholder='Team Name'
                     value={teamData.teamName}
                     onChange={handleInputChange}
                 />

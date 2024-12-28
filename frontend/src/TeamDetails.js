@@ -6,14 +6,12 @@ const TeamDetails = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        console.log('Fetching teams information');
         const response = await fetch('http://localhost:4000/api/v1/getteams'); // Ensure this points to the correct backend port
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('Fetched data:', data);
 
         // Extract teams array from the response object
         if (data.success) {

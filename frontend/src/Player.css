@@ -1,3 +1,13 @@
+.form
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+}
+span
+{
+    padding-left: 2%;
+}
 @media (max-width: 400px) {
     .form {
         display: flex;
@@ -10,6 +20,5 @@
     }
     input{
         width: 80vw;
-        
     }
 }

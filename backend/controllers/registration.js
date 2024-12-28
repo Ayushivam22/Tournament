@@ -24,7 +24,6 @@ const createTeam = async (req, res) => {
 
 const getTeams = async (req, res) => {
   try {
-    console.log('inside getTeams');
     const teams = await Team.find();
     res.status(200).json(
       {
