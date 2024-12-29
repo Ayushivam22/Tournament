@@ -1,35 +1,77 @@
 .App {
   text-align: center;
 }
-.title
-{
-  background-color: red;
-  height: 20vh;
-  width: 100%;
-}
-.teamName{
-  input{
 
-    width: 40vw;
+.dynamic-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #8ec5fc, #a6c1ee);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
-.info-form
-{
+
+.header {
+  background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent color */
+  height: 8vh;
+  width: 100wh;
+  margin: 1.5vh;
   display: flex;
-  background-image: linear-gradient(to right, #972d13aa, #feb47b);
-  /* background-color: yellow; */
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 2vh;
+  color: #333; /* Dark text color for contrast */
 }
+
+.info-form{
+  width:100wh;
+  height:80vh;
+  display: flex;
+}
+
+.info{
+  background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent color */
+  height: 100vh;
+  width: 40%;
+  margin: 1.5vh;
+  margin-top: 0vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 2vh;
+  color: #333; /* Dark text color for contrast */
+}
+
 .form{
   background-color: pink;
   width: 60vw;
   /* height: 100vh; */
 }
-.info
-{
-  width: 600px;
-  height: 100vh;
-  background-color: yellow;
+
+.teamName{
+  input{
+    width: 40vw;
+  }
 }
+
 input{
   padding-left: 5%;
   background-color: rgba(104, 241, 236, 0.342);
