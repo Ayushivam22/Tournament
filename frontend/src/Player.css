@@ -3,7 +3,6 @@ input[type='number']::-webkit-outer-spin-button, input[type='number']::-webkit-i
 {
     display: flex;
     justify-content: center;
-    padding-top: 1%;
     background-color: transparent;
 }
 span
