@@ -1,7 +1,13 @@
-body{
-    background-color: #f0c6c6;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+.RegForm{
+    background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent color */
+    height: 100vh;
+    width: 100wh;
+    margin: 1.5vh;
+    margin-top: 0vh;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 2vh;
+    color: #333; /* Dark text color for contrast */
 }
 .contactInfo{
     flex-direction: column;
