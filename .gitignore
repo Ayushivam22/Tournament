@@ -1,2 +1,3 @@
 /test
-
+/frontend backup/
+# git rm -r --cached "frontend backup"  --> To clear the cache if gitignore misbehaves
