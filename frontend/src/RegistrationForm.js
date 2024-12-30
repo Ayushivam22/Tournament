@@ -125,6 +125,7 @@ const RegistrationForm = () => {
                 email: teamData.email,
                 phone: teamData.phone
             };
+            console.log(teamDataToSend);
             const response = await fetch('http://localhost:3000/api/v1/createteam', {
                 method: 'POST',
                 headers: {

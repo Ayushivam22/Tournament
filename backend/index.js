@@ -16,11 +16,8 @@ app.use(cors());
 dbConnect();
 
 // Routes
-const registrationRoutes = require("./routes/registration");
-const paymentRoutes = require("./routes/payment");
-
-app.use('/api/v1', registrationRoutes);
-app.use('/api/v1', paymentRoutes);
+const routes = require('./routes/routes')
+app.use('/api/v1', routes);
 
 // Active server
 app.listen(PORT, () => {
