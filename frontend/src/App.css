@@ -40,6 +40,7 @@
 }
 
 .info-form{
+  margin-right: 1.5vh;
   width:100wh;
   height:80vh;
   display: flex;
