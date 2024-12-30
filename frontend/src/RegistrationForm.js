@@ -188,7 +188,6 @@ const RegistrationForm = () => {
                 />
                 {errors.email && <p className="error">{errors.email}</p>}
                 <label>Phone:</label>
-                <br />
                 <input
                     type="number"
                     name="phone"
