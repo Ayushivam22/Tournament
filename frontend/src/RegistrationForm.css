@@ -14,15 +14,13 @@
     border-radius: 2vh;
     flex-direction: column;
     display: flex;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 10%;
-    /* padding: 5px; */
-    /* justify-content: center; */
     input{
         padding: 0;
-        text-align:center;
+        text-align: center;
         width: 80%;
     }
 }
@@ -45,18 +43,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    
-  background-image: transparent;
-    /* justify-content:baseline; */
+    background-image: transparent;
     gap: 5px;
-    /* padding: 50px; */
     font-family:'montserrat','Times New Roman', Times, serif;
 }
 span{
     display: flex;
     font-family:'montserrat','Times New Roman', Times, serif;
 }
-
 .submit
 {
     background-color: #920d0d;
@@ -80,4 +74,13 @@ span{
 {
     transform: scale(0.9);
     background-color: #920d0da3;
+}
+.otpInput {
+    margin-top: 10px;
+    input {
+        width: 80%;
+    }
+    button {
+        margin-left: 10px;
+    }
 }

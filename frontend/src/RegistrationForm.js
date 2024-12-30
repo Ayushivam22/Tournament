@@ -15,6 +15,8 @@ const RegistrationForm = () => {
     });
 
     const [errors, setErrors] = useState({});
+    const [otpSent, setOtpSent] = useState(false);
+    const [otp, setOtp] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -29,6 +31,55 @@ const RegistrationForm = () => {
             ...prevTeamData,
             [playerKey]: newFormData
         }));
+    };
+
+    const handleOtpChange = (e) => {
+        setOtp(e.target.value);
+    };
+
+    const sendOtpHandler = async () => {
+        // just for debugging
+        setOtpSent(true);
+        try {
+            const response = await fetch('http://localhost:3000/api/v1/sendotp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: teamData.email })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                setOtpSent(true);
+                console.log('OTP sent successfully:', result);
+            } else {
+                console.error('Error sending OTP:', result.message);
+            }
+        } catch (error) {
+            console.error('Error sending OTP:', error);
+        }
+    };
+
+    const verifyOtpHandler = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/v1/verifyotp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: teamData.email, otp })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                console.log('OTP verified successfully:', result);
+            } else {
+                console.error('Error verifying OTP:', result.message);
+            }
+        } catch (error) {
+            console.error('Error verifying OTP:', error);
+        }
     };
 
     const validateEmail = (email) => {
@@ -185,6 +236,19 @@ const RegistrationForm = () => {
                     value={teamData.email}
                     onChange={handleInputChange}
                 />
+                <button type="button" onClick={sendOtpHandler}>Send OTP</button>
+                {/* set otpsent to true just for Debugging purpose */}
+                {otpSent && ( 
+                    <div className="otpInput">
+                        <input
+                            type="text"
+                            placeholder="Enter OTP"
+                            value={otp}
+                            onChange={handleOtpChange}
+                        />
+                        <button type="button" onClick={verifyOtpHandler}>Verify</button>
+                    </div>
+                )}
                 {errors.email && <p className="error">{errors.email}</p>}
                 <label>Phone:</label>
                 <input
