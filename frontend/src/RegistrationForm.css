@@ -10,14 +10,18 @@
     color: #333; /* Dark text color for contrast */
 }
 .contactInfo{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2vh;
     flex-direction: column;
     display: flex;
         justify-content: center;
+        align-items: center;
     width: 100%;
+    margin-top: 10%;
     /* padding: 5px; */
     /* justify-content: center; */
     input{
-        
+        padding: 0;
         text-align:center;
         width: 80%;
     }

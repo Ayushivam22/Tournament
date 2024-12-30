@@ -178,7 +178,6 @@ const RegistrationForm = () => {
             ))}
             <div className='contactInfo'>
                 <label>Email:</label>
-                <br />
                 <input
                     type="email"
                     name="email"
