@@ -1,5 +1,7 @@
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
+const {Team} = require('../models/team'); // Adjust the path as necessary
+const sendWelcomeEmail = require('../controllers/sendWelcomeMail');
 
 const initiatePayment = async (req, res) => {
   try {
@@ -35,7 +37,7 @@ const initiatePayment = async (req, res) => {
 
 const validatePayment = async (req, res) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, contactEmail, name } = req.body;  // Destructure all necessary fields here
 
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
@@ -46,6 +48,15 @@ const validatePayment = async (req, res) => {
     const isAuthentic = expectedSignature === razorpay_signature;
 
     if (isAuthentic) {
+      // Update payment status in the database
+      await Team.findOneAndUpdate(
+        { contactEmail: contactEmail },
+        { paymentDone: true }
+      );
+
+      // Send confirmation email
+      sendWelcomeEmail(contactEmail, name);
+
       res.status(200).json({
         success: true,
         message: "Payment validated successfully",

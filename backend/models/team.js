@@ -12,7 +12,7 @@ const teamSchema = new Schema({
   players: [playerSchema],
   contactEmail: { type: String, required: true, unique: true },
   contactPhone: { type: Number, required: true },
-  isVerified: { type: Boolean, default: false },
+  paymentDone: { type: Boolean, default: false },
 });
 
 const otpSchema = new Schema({

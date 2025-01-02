@@ -1,17 +1,8 @@
-const { OTP,Team } = require("../models/team"); // Adjust the path as necessary
-const sendOTPEmail = require("./sendOTPEmail"); // You'll need a function to send OTP via email
+const { OTP,Team } = require("../models/team"); 
+const sendOTPEmail = require("./sendOTPEmail"); 
 exports.sendOTP = async (req, res) => {
   const { contactEmail } = req.body;
   console.log("Received contactEmail in backend:", contactEmail);
-
-  if (!contactEmail) {
-    return res.status(400).json({ message: "contactEmail is required" });
-  }
-  const user = Team.findOne(contactEmail);
-  if(user)
-  {
-    return res.status(400).json({ success:false,message: "User already exists with this email" });
-  }
   // Generate a random OTP
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
 

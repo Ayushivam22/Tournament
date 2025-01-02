@@ -8,7 +8,15 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #8ec5fc, #a6c1ee);
+  background: linear-gradient(
+    45deg,
+    #ff9a9e,
+    #fad0c4,
+    #fad0c4,
+    #fbc2eb,
+    #8ec5fc,
+    #a6c1ee
+  );
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
 }
@@ -26,69 +34,79 @@ html {
 }
 
 .header {
-  background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent color */
-  height: 8vh;
-  width: 100wh;
+  position: sticky;
+  top:0;
+  background-color: rgb(255, 255, 255);
+  text-shadow: #333 1px 0px 5px;
+  height: 10vh;
+  /* width: 0wh; */
   margin: 1.5vh;
-  display: flex;
+  display: flex; 
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 4em;
   font-weight: bold;
   border-radius: 2vh;
-  color: #333; /* Dark text color for contrast */
+  color: #622929;
+  z-index: 1;
 }
-
-.info-form{
+.info-form {
+  gap: 1.5vh;
   margin-right: 1.5vh;
-  width:100wh;
-  height:80vh;
+  width: 100wh;
+  height:auto;
   display: flex;
 }
-
-.info{
-  background-color: rgba(255, 255, 255, 0.8); /* Light semi-transparent color */
-  height: 100vh;
-  width: 40%;
-  margin: 1.5vh;
-  margin-top: 0vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  font-weight: bold;
-  border-radius: 2vh;
-  color: #333; /* Dark text color for contrast */
+/* .info::webkit-scrollbar {
+  display: none;
+} */
+.image-container {
+  width: 100%;
+  min-height: 120vh;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  margin-left: 1.5vh;
+  margin-bottom: 1.5vh;
 }
 
-.form{
+.adjusted-image {
+  position: absolute;
+  top: 54%; /* Adjust vertical position */
+  left: 50%; /* Adjust horizontal position */
+  transform: translate(-50%, -50%); /* Center the image */
+  min-width: 100%;
+  min-height: 120vh;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+
+.form {
   background-color: pink;
   width: 60vw;
   /* height: 100vh; */
 }
 
-.teamName{
-  input{
+.teamName {
+  input {
     width: 40vw;
   }
 }
 
-input{
+input {
   padding-left: 5%;
   background-color: rgba(104, 241, 236, 0.342);
   height: 3vh;
   width: 15vw;
   border-radius: 12px;
 }
-input:hover
-{
+input:hover {
   background-color: rgba(104, 241, 236, 0.842);
   scale: 1.02;
   transition: 0.3s;
-  
 }
-form
-{
+form {
   display: flex;
   flex-direction: row;
   /* justify-content: center; */
@@ -96,45 +114,41 @@ form
 }
 /* Media query for mobile devices */
 @media (max-width: 660px) {
-  .App
-  {
+  .App {
     display: flex;
     flex-direction: column;
     width: 100vw;
   }
-  .title
-  {
+  .title {
     /* width: 100vw; */
   }
-  .info-form
-  {
+  .info-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* width: auto;  */
   }
-  .info{
+  .info {
     width: 100vw;
   }
   .RegForm {
     /* background-color: green; */
-      /* padding: 20px; */
+    /* padding: 20px; */
   }
 
   .submit {
-      font-size: 16px;
-      padding: 8px;
+    font-size: 16px;
+    padding: 8px;
   }
-  
-  span {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-  .teamName
-  {
-    input{
-      width: 70vw;}
 
+  span {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .teamName {
+    input {
+      width: 70vw;
+    }
   }
 }

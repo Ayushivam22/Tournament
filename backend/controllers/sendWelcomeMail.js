@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const { Verification_Email_Template } = require('../models/EmailTemplates');
+const { Welcome_Email_Template } = require('../models/EmailTemplates');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -11,23 +11,22 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendOTPEmail = async (email, otp) => {
-  const htmlContent = Verification_Email_Template.replace('{verificationCode}', otp);
+const sendWelcomeEmail = async (email, name) => {
+  const htmlContent = Welcome_Email_Template.replace('{name}', name);
 
   const mailOptions = {
     from:'aks42423@gmail.com',
     to: email,
-    subject: 'Your OTP Code',
+    subject: 'Congratulations ! You have successfully registered.',
     html: htmlContent,  
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log('OTP email sent successfully');
-    alert('OTP sent successfully');
+    // console.log('OTP email sent successfully');
   } catch (error) {
     console.error('Error sending OTP email:', error);
   }
 };
 
-module.exports = sendOTPEmail;
+module.exports = sendWelcomeEmail;
