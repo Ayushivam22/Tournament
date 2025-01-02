@@ -1,12 +1,38 @@
-const Team = require("../models/team");
+const {Team} = require("../models/team");
 
-// Function to create a team
 const createTeam = async (req, res) => {
   try {
-    const { teamName, players, contactEmail, contactPhone, isVerified } = req.body;
+    console.log('Request body:', req.body);
+    const { teamName, players, contactEmail, contactPhone } = req.body;
+
+    // Manually validate required fields
+    if (!teamName || !players || !contactEmail || !contactPhone) {
+      console.error('Validation error:', {
+        teamName,
+        players,
+        contactEmail,
+        contactPhone,
+      });
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
+
+    // Log before creating the team object
+    console.log('Creating team object with:', {
+      teamName,
+      players,
+      contactEmail,
+      contactPhone,
+    });
 
     // Create the team with the provided details
-    const team = new Team({ teamName, players, contactEmail, contactPhone, isVerified });
+    const team = new Team({ teamName, players, contactEmail, contactPhone });
+
+    // Log after team object is created but before saving
+    console.log('Team created:', team);
+
     await team.save();
 
     res.status(201).json({
@@ -15,34 +41,15 @@ const createTeam = async (req, res) => {
       message: "Team created successfully",
     });
   } catch (error) {
+    console.error('Error creating team:', error); // Log the error details
     res.status(500).json({
       success: false,
       message: "Error creating team",
-      error,
-    });
-  }
-};
-
-// Function to get all teams
-const getTeams = async (req, res) => {
-  try {
-    const teams = await Team.find();
-    res.status(200).json({
-      success: true,
-      teams,
-      message: "Teams fetched successfully",
-    });
-    console.log('Teams fetched successfully');
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error fetching teams",
-      error,
+      error: error.message, // Provide error message for clarity
     });
   }
 };
 
 module.exports = {
   createTeam,
-  getTeams,
 };

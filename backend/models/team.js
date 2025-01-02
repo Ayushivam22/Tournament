@@ -1,20 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const playerSchema = new Schema({
-  name: { type: String},
-  ig_name: { type: String},
-  ig_id: { type: String }
+  name: { type: String },
+  ig_name: { type: String },
+  ig_id: { type: String },
 });
 
 const teamSchema = new Schema({
   teamName: { type: String, required: true },
   players: [playerSchema],
-  contactEmail: { type: String, required: true,unique: true},
-  contactPhone: { type: Number, required: true}, 
-  isVerified: { type: Boolean, default: false}
+  contactEmail: { type: String, required: true, unique: true },
+  contactPhone: { type: Number, required: true },
+  isVerified: { type: Boolean, default: false },
 });
 
-const Team = mongoose.model('Team', teamSchema);
+const otpSchema = new Schema({
+  otp: { type: String, required: true },
+  contactEmail: { type: String, required: true, unique: true },
+  createdAt: { type: Date, default: Date.now, expires: "5m" }, // This makes the OTP expire after 5 minutes
+});
 
-module.exports = Team;
+const OTP = mongoose.model("OTP", otpSchema);
+const Team = mongoose.model("Team", teamSchema);
+
+module.exports = {
+  Team,
+  OTP
+};
